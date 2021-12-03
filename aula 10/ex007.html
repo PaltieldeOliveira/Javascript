@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somando números</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        body{
+            background-color:rgb(99, 27, 39);
+            padding-top:40px;
+            padding-left:20px;
+            padding-right:20px;
+            font: normal 18px Arial, helvetica, sans-serif;
+        }
+        main{
+            min-width:320px;
+            max-width:600px;
+            padding:20px;
+            background-color:rgb(255, 157, 173);
+            color:rgb(26, 7, 10);
+            margin:auto;
+            border-radius:20px;
+            position:relative;
+        }
+        main h1{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        main input{
+            display:block;
+            margin-bottom:20px;
+        }
+        main input.nmb{
+            background-color:rgb(252, 231, 234);
+            border-radius:5px;
+            border:2px solid rgb(66, 16, 24);
+            padding:3px;
+            color:rgb(99, 27, 39);
+        }
+        main input.but{
+            padding:3px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size:20px;
+            font-weight:bolder;
+            color:rgb(247, 192, 201);
+            border-radius:5px;
+            background-color:rgb(99, 27, 39);
+            box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.308);
+        }
+        main input.but:hover{
+            background-color:rgb(247, 192, 201);
+            color:rgb(99, 27, 39);
+        }
+        div#bf{
+            font: normal 9px Arial, Verdana, sans-serif;
+            width:90px;
+            height:90px;
+            background-color:rgb(99, 27, 39);
+            color:rgb(247, 192, 201);
+            text-align:justify;
+            padding:10px;
+            position: absolute;
+            top:45%;
+            left:17%;
+            border-radius:15px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Somando valores</h1>
+        <input type="number" name="txtn1" id="txtn1" class="nmb">
+        <input type="number" name="txtn2" id="txtn2" class="nmb">
+        <input type="button" value="somar" onclick="somar()" onmouseenter="aparecer()" onmouseout="desaparecer()" class="but">
+        <div id="res">
+            Resultado
+        </div>
+        <div class="bf" id="bf">
+            Ao ser clicado no botão somar, vão ser somado os valores digitado nas caixas de texto
+        </div>
+    </main>
+<script>
+    function somar(){
+        var txt1 = document.getElementById('txtn1')
+        var txt2 = document.getElementById('txtn2')
+        var n1 = Number(txt1.value)
+        var n2 = Number(txt2.value)
+        var res = document.getElementById('res')
+        var s = n1 + n2
+        res.innerHTML = `A soma entre ${n1} e ${n2} é ${s}`
+    }
+ 
+    var bf = document.getElementById('bf')
+    bf.style.display = 'none'
+
+    function aparecer(){
+        bf.style.display = 'block'
+    }
+    function desaparecer(){
+        bf.style.display = 'none'
+    }
+</script>
+</body>
+</html>

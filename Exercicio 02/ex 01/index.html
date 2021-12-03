@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super contador</title>
+    <link rel="shortcut icon" href="media/favicon.ico" type="image/x-icon">
+    <style>
+        /* Cores do projeto */
+        :root{
+            --cor0:rgb(252, 232, 196);
+            --cor1:#b8860b;
+            --cor2:#363636;
+        }
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        body{
+            padding:50px 20px 20px 20px;
+            font-family:Arial, Helvetica, sans-serif;
+            background-color:rgb(109, 172, 223);
+            color:white;
+        }
+        header{
+            text-align:center;
+            margin-bottom:20px;
+        }
+        header h1{
+            font-family:Arial, Helvetica, sans-serif;
+            font-size:2em;
+        }
+        main{
+            min-width:320px;
+            max-width:600px;
+            margin:auto;
+            border-radius:20px;
+            box-shadow:2px 2px 5px 1px rgba(0, 0, 0, 0.37);
+            background-color:whitesmoke;
+            margin-bottom:20px;
+            color:black;
+            padding:20px;
+        }
+        
+        main .bt{
+            padding:5px;
+            border-radius:5px;
+            font-size:1.3em;
+            background-color:darkblue;
+            color:lightblue;
+            margin-bottom:20px;
+        }
+        main .bt:hover{
+            color:white;
+        }
+        
+        main p{
+            margin-bottom:20px;
+        }
+    
+        main #x{
+            margin-bottom:20px;
+            font-size:1.5em;
+        }
+
+        footer{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vamos contar (Progressão Aritimética)</h1>
+    </header>
+    <main>
+        <p>Início: <input type="number" name="inicio" id="inicio"></p>
+        <p>Fim: <input type="number" name="fim" id="fim"></p>
+        <p>Passo: <input type="number" name="passo" id="passo"></p>
+        <input type="button" value="Contar" onclick="contar()" class="bt">
+        <div id="res">
+            Preparando a contagem...
+        </div>
+    </main>
+    <footer>
+        <p>&copy CursoemVideo</p>
+    </footer>
+    <script>
+        function contar(){
+            var inicio = document.getElementById('inicio')
+            var fim = document.getElementById('fim')
+            var passo = document.getElementById('passo')
+            var res = document.getElementById('res')
+            if(inicio.value.length == 0 || fim.value.length == 0 || passo.value.length == 0){
+                res.innerHTML = `impossível contar...`
+            }else{
+                res.innerHTML = `Contando: `
+                var ninicio = Number(inicio.value)
+                var nfim = Number(fim.value)
+                var npasso = Number(passo.value)
+                if(npasso <=0){
+                    alert('Passo invalido, considerando passo = 1')
+                    npasso = 1
+                }
+                if(ninicio < nfim){
+                    for(var c = ninicio; c <= nfim; c += npasso)
+                    res.innerHTML += ` ${c} \u{1F449}`
+                }else{
+                    for(var c = ninicio; c >= nfim; c -= npasso)
+                    res.innerHTML += ` ${c} \u{1F449}`
+                }
+                res.innerHTML += ` \u{1F3c1}`
+                /*
+                Exemplo usando while
+                var c = ninicio
+                if (ninicio < nfim){
+                    while(c <= nfim){
+                    res.innerHTML += ` ${c} \u{1F449}`
+                    c += npasso
+                    }
+                    
+                }else{
+                    while(c >= nfim){
+                    res.innerHTML += ` ${c} \u{1F449}`
+                    c -= npasso
+                    }
+                }
+                res.innerHTML += ` \u{1F3c1}`*/
+            }
+            
+        }
+    </script>
+</body>
+</html>

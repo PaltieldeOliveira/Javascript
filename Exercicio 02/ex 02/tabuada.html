@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <link rel="shortcut icon" href="midia/favicon.ico" type="image/x-icon">
+    <style>
+        /* Cores do projeto */
+        :root{
+            --cor0:rgb(252, 232, 196);
+            --cor1:#b8860b;
+            --cor2:#363636;
+        }
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        body{
+            padding:50px 20px 20px 20px;
+            font-family:Arial, Helvetica, sans-serif;
+            background-color:rgb(42, 81, 112);
+            color:white;
+        }
+        header{
+            text-align:center;
+            margin-bottom:20px;
+        }
+        header h1{
+            font-family:Arial, Helvetica, sans-serif;
+            font-size:2em;
+        }
+        main{
+            min-width:320px;
+            max-width:500px;
+            margin:auto;
+            border-radius:20px;
+            box-shadow:2px 2px 5px 1px rgba(0, 0, 0, 0.37);
+            background-color:whitesmoke;
+            margin-bottom:20px;
+            color:black;
+            padding:30px 20px 20px 20px;
+        }
+        main input{
+            margin-bottom:20px;
+        }
+        main select{
+            padding:5px;
+            border-radius:5px;
+        }
+        }
+        
+        main #x{
+            margin-bottom:20px;
+            font-size:1.5em;
+        }
+        footer{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tabuada</h1>
+    </header>
+    <main>
+       <p>Número: <input type="number" name="numero" id="numero"> <input type="button" value="Gerar Tabuada" onclick="gerar()"></p>
+       <select name="tabuada" id="seltab" size="10">
+        <option value="msg">Digite um número acima</option>
+       </select>
+       <div id="res"></div>
+    </main>
+    <footer>
+        <p>&copy CursoemVideo</p>
+    </footer>
+    <script>
+        function gerar(){
+            var numero = document.getElementById('numero')
+            var tab = document.getElementById('seltab')
+            if(numero.value.length == 0){
+                alert('Você não digitou nenhum valor')
+            }else{
+                tab.innerHTML = ""
+                n = Number(numero.value)
+                var c = 1
+                var nxc = n*c
+                while(c <= 10){
+                    var item = document.createElement('option')
+                    item.text = `${n} x ${c} = ${nxc}`
+                    item.value = `tab ${c}`
+                    //res.innerHTML += `${n} x ${c} = ${nxc} <br>`
+                    tab.appendChild(item)
+                    c++
+                }
+            }
+        }
+    </script>
+</body>
+</html>

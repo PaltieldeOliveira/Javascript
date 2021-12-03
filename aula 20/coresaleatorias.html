@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cores aleatórias</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        body{
+            background-color:rgb(63, 63, 63);
+            padding-top:100px;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        main #content{
+            margin:auto;
+            width:400px;
+            height:400px;
+            border:solid 1px;
+            margin-bottom:20px;
+            background-color:white;
+        }
+        main #botoes{
+            width:200px;
+            margin:auto;
+        }
+    
+        #bt1, #bt2{
+            padding:7px;
+            background-color:black;
+            color:white;
+            border-radius:5px;
+        }
+        #relogio{
+            background-color:black;
+            padding:3px;
+            font-size:2em;
+            color:darkgreen;
+            width:200px;
+            margin:auto;
+            text-align:center;
+            margin-bottom:20px;
+            border-radius:8px;
+        }
+    </style>
+</head>
+<body > 
+    <main>
+        <div id="relogio">00:00:00</div>
+        <div id="content">
+            <!-- <div id="cor1"></div>
+            <div id="cor2"></div>
+            <div id="cor3"></div>
+            <div id="cor4"></div>
+            <div id="cor5"></div>
+            <div id="cor6"></div>
+            <div id="cor7"></div>
+            <div id="cor8"></div>
+            <div id="cor9"></div> -->
+        </div>
+        <div id ="botoes">
+            <button id ="bt1" onclick="iniciar()">Iniciar</button>
+            <button id="bt2" onclick="parar()">Parar</button>
+        </div>
+    </main>
+    <script>
+        function rel(){
+            var agora = new Date()
+            var minuto = agora.getMinutes()
+            var hora = agora.getHours()
+            var segundo = agora.getSeconds()
+            if(hora<10){
+                hora = "0" + hora
+            }
+            if(minuto<10){
+                minuto = "0" + minuto
+            }
+            if(segundo<10){
+                segundo = "0" + segundo
+            }
+            var relogio = document.getElementById('relogio')
+            relogio.innerHTML = `${hora}:${minuto}:${segundo}`
+        }
+        var tempo = setInterval(rel,1000)
+
+        var tmp = ""
+        function mudacor(){
+            var objeto = document.getElementById('content')
+            var r = Math.floor(Math.random()*255)
+            var g = Math.floor(Math.random()*255)
+            var b = Math.floor(Math.random()*255)
+            objeto.style.background = `rgb(${r},${g},${b})`
+        }
+        function iniciar(){
+            tmp = setInterval(mudacor, 3000)
+        }
+        function parar(){
+            clearInterval(tmp)
+        }
+    </script>
+</body>
+</html>

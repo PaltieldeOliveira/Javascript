@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac Man 1 KKKK</title>
+    <link rel="shortcut icon" href="midia/favicon.ico" type="image/x-icon">
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        body{
+            padding:30px;
+            background-color:rgb(65, 63, 63);
+            font-family:Arial, Helvetica, sans-serif
+        }
+        header{
+            
+            width:400px;
+            height:100px;
+            margin:auto;
+            margin-bottom:30px;
+        }
+        #pac{
+            width:100px;
+            height:100px;
+            background-image: url(midia/pacdir.png);
+            position:absolute;
+            top:220px;
+            left:50px;
+            cursor:pointer;
+        }
+        #bloco{
+            width:100px;
+            height:100px;
+            background-color:rgb(206, 177, 48);
+            padding:5px;
+            border-radius:5px;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color:rgb(65, 63, 63);
+            position:absolute;
+            top:350px;
+            left:200px;
+            display:none;
+        }
+        #botoes{
+            width:160px;
+            background-color:black;
+            color:white;
+            padding:7px;
+            border-radius:5px;
+            margin:auto;
+            text-align:center;
+        }
+    </style>
+</head>
+<body onload="inicia()">
+    <header>
+        
+        <img src="midia/pacman2.png" alt="pacman" onmouseenter="blocoaparecer()" onmouseout="blocodesaparecer()">
+        
+    </header>
+    <div id="pac">
+
+    </div>
+    <div id="bloco">
+        Tente pegar o pac man se possível KKKK
+    </div>
+    <div id="botoes">
+    Velocidade: 
+    <button class="bt" onclick="diminuir()">&lt</button>
+    <button class="bt" onclick ="aumentar()">&gt</button>
+    </div>
+    <script>
+        var jog
+        var vel
+        var dx
+        var dy
+        var px
+        var py
+        var anima
+        var estado
+        var bloco = document.getElementById('bloco')
+
+        function inicia(){
+            vel = 5
+            dx = 1
+            dy = 0
+            px = 50
+            py = 220
+            estado = 1
+            jog = document.getElementById('pac')
+            game()
+            jog.addEventListener("click",moverparar)
+        }
+
+        function moverparar(){
+            if(estado == 1){
+                estado = 0
+                cancelAnimationFrame(anima)
+            }else{
+                estado = 1
+                anima = requestAnimationFrame(game)
+            }
+        }
+
+        function game(){
+            px += (dx*vel)
+            jog.style.left = px+"px"
+            if(px>800){
+                dx=-1
+                jog.style.backgroundImage = 'url(midia/pacesq.png)'
+            }else if(px<50){
+                dx=1
+                jog.style.backgroundImage = 'url(midia/pacdir.png)'
+            }
+            anima = requestAnimationFrame(game)
+        }
+        
+        function blocoaparecer(){
+            bloco.style.display = 'block'
+        }
+        function blocodesaparecer(){
+            bloco.style.display = 'none'
+        }
+
+        function aumentar(){
+            if(vel<20){
+                vel += 1
+            }
+            
+        }
+        function diminuir(){
+            if(vel>1){
+                vel -= 1
+            }
+            
+        }
+       
+    </script>
+</body>
+</html>

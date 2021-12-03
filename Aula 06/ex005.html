@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros passos com Dom</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        body{
+            background-color:rgb(81, 78, 134);
+            color: white;
+            font:normal 18pt Arial, helvetica, sans-serif;
+            padding:0px 20px;
+        }
+        main{
+            min-width:320px;
+            max-width:800px;
+            margin:auto;
+            background-color: rgb(119, 107, 255);
+            padding:20px;
+            border-radius:10px;
+            margin-top:100px;
+        }
+        
+        main p{
+            margin-bottom:10px;
+        }
+        div{
+            background-color:rgb(7, 6, 19);
+            color:rgb(93, 79, 245);
+            padding:5px;
+            width:200px;
+            text-align:center;
+            border-radius:10px;
+            box-shaddow:7px 7px 4px rgba(0, 0, 0, 0.404);
+        }
+        div:hover{
+            color:rgb(49, 42, 126);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Iniciando estudos com dom</h1>
+        <p>Aqui vai o resultado</p>
+        <p>Aprendendo a usar <strong>Dom </strong>em Javascript</p>
+        <div id="msg">Clique em mim</div>
+    </main>
+    <script>
+        var p1 = document.getElementsByTagName('p')[1]
+        window.document.write('Está escrito no 1º parágrafo '+p1.innerText)
+        var d = document.querySelector('div#msg')
+        d.innerText='Texto mudado'
+        
+    </script>
+</body>
+</html>

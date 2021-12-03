@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time de futebol</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        body{
+            background-color:darkblue;
+            color:white;
+            padding:20px;
+
+        }
+        header{
+            text-align:center;
+            font:normal 2em 'Lora', serif;
+            margin-bottom:30px;
+        }
+        main{
+            min-width:320px;
+            max-width:700px;
+            height:400px;
+            padding:20px;
+            font:normal 1.3em Arial, Verdana, sans-serif;
+            margin:auto;
+            border-radius:20px;
+            background-color:whitesmoke;
+            color:black;
+        }
+        main select{
+            margin-bottom:20px;
+            display:block;
+        }
+        main p{
+            margin-bottom:20px;
+        }
+        main .bt{
+            padding:5px;
+            font-size:1.5em;
+            background-color:darkblue;
+            color:white;
+            display:block;
+            border-radius:5px;
+            margin-bottom:20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Descubrindo o seu time do coração</h1>
+    </header>
+    <main>
+        <p>Escolha abaixo o time do seu coração</p>
+        <select name="time" id="time">
+            <option value=""></option>
+            <option value="cor">Corinthians</option>
+            <option value="pal">Palmeiras</option>
+            <option value="sp">São Paulo</option>
+            <option value="san">Santos</option>
+            <option value="fla">Flamengo</option>
+            <option value="cru">Cruzeiro</option>
+            <option value="gre">Gremio</option>
+        </select>
+        <input type="button" value="Confirmar" class="bt" onclick="confirmar()">
+        <div id="res"></div>
+    </main>
+    <script>
+        function confirmar(){
+            var time = document.getElementById('time')
+            var res = document.getElementById('res')
+            if(time.value == ''){
+                alert('[ERRO] Você não selecionou nenhum time')
+            }else{
+                //res.innerHTML = `OK`
+                switch (time){
+                    case cor : {
+                        document.body.style.background='black'
+                    }
+                    break
+                    case pal : {
+                        document.body.style.background='green'
+                    }
+                    break
+                    case sp : {
+                        document.body.style.background='red'
+                    }
+                    break
+                    case san : {
+                        document.body.style.background='darkgray'
+                    }
+                    break
+                    case fla : {
+                        document.body.style.background='red'
+                    }
+                    break
+                    case cru : {
+                        document.body.style.background='blue'
+                    }
+                    break
+                    case gre : {
+                        document.body.style.background='lightblue'
+                    }
+                    break
+                    default :
+                        alert('erro')
+                }
+                res.innerHTML = `O seu time do coracão é ${time.text}`
+            }
+        }
+    </script>
+</body>
+</html>

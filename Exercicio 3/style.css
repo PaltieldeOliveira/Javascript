@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+/* Cores do projeto */
+:root{
+    --cor0:rgb(252, 232, 196);
+    --cor1:#b8860b;
+    --cor2:#363636;
+}
+*{
+    margin:0px;
+    padding:0px;
+}
+body{
+    padding:50px 20px 20px 20px;
+    font-family:Arial, Helvetica, sans-serif;
+    background-color:rgb(42, 81, 112);
+    color:white;
+}
+header{
+    text-align:center;
+    margin-bottom:20px;
+}
+header h1{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:2em;
+}
+main{
+    min-width:320px;
+    max-width:500px;
+    
+    margin:auto;
+    border-radius:20px;
+    box-shadow:2px 2px 5px 1px rgba(0, 0, 0, 0.37);
+    background-color:whitesmoke;
+    margin-bottom:20px;
+    color:black;
+    padding:20px;
+}
+
+
+}
+
+main #x{
+    margin-bottom:20px;
+    font-size:1.5em;
+}
+main P{
+    margin-botton:20px;
+}
+main input{
+    margin-bottom: 20px;
+}
+main select{
+    margin-bottom: 20px;
+    display:block;
+    padding:5px;
+    width:130px;
+    border-radius:5px;
+}
+.bt{
+    padding:5px;
+}
+footer{
+    text-align:center;
+}

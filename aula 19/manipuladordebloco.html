@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulador de bloco</title>
+    <link rel="shortcut icon" href="midia/favicon.ico" type="image/x-icon">
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap');
+        :root{
+            --cor0:#A37CF2;
+            --cor1:#7132F0;
+            --cor2:#5A27BD;
+            --cor3:#473270;
+            --cor4:#351870;
+        }
+        body{
+            background-image:linear-gradient(to right, var(--cor4), var(--cor2));
+            color:var(--cor0);
+            padding:30px;
+            font-family:'Open Sans Condensed', sans-serif;
+            
+        }
+        header{
+            margin-bottom:30px;
+        }
+        header h1{
+            font-size:3em;
+            text-align:center;
+        }
+        main{
+            background-color:var(--cor3);
+            width:320px;
+            height:320px;
+            margin:auto;
+            border:solid 2px black;
+            margin-bottom:20px;
+            position:relative;
+        }
+        main #memanipule{
+            position:absolute;
+            border:solid 1px black;
+            width:20px;
+            height:20px;
+            left:0px;
+            top:0px;
+            background-color:var(--cor0);
+        }
+        footer{
+            text-align:center;
+        }
+        footer p{
+            font:bold 0.7em;
+        }
+    </style>
+</head>
+<body onload="aparecer">
+    <header>
+        <h1>Manipulador de bloco</h1>
+    </header>
+    <main>
+        <div id="memanipule"></div>
+    </main>
+    <footer>
+        <p>Desenvolvido por Paltiel de Oliveira</p>
+    </footer>
+    <script>
+        var px = 0
+        var py = 0
+        document.addEventListener("keydown", function(event){
+            var obj = document.getElementById('memanipule')
+            //var left = obj.style.left
+            //var top = obj.style.top
+            var tecla = event.keyCode
+            if(tecla == 37){
+                px -= 10;
+                obj.style.left = px+'px'
+            }else if(tecla == 38){
+                py -= 10;
+                obj.style.top = py+'px'
+            }else if(tecla == 39){
+                px += 10;
+                obj.style.left = px+'px'
+            }else if(tecla == 40){
+                py += 10;
+                obj.style.top = py+'px'
+            }
+        })
+        
+    </script>
+</body>
+</html>

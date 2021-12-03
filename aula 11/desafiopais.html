@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qual é o seu país</title>
+    <link rel="shortcut icon" href="midias/favicon.ico" type="image/x-icon">
+    <style>
+        :root{
+            --cor0:#E5F291;
+            --cor1:#DBF049;
+            --cor2:#ABBD39;
+            --cor3:#667022;
+            --cor4:#6A7043;
+            --fonttitulo:'Comforter Brush', cursive;
+            --fonttexto: 'Montserrat', sans-serif;
+        }
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Montserrat:ital,wght@0,200;0,300;1,300&display=swap');/*Usar as fontes do projeto com os nomes 'Comforter Brush', cursive; para as fontes de títulos e 'Montserrat', sans-serif; para as fontes de texto. */
+
+        body{
+            background-color:var(--cor4);
+            font-family:var(--fonttexto);
+            padding:30px 20px 20px 20px;
+        }
+        header{
+            padding-bottom:20px;
+            min-width:320px;
+            max-width:500px;
+            margin:auto;
+        }
+        .imgheader{
+            display:inline;
+        }
+        header img{
+            width:51px;
+            height:34px;
+        }
+        main{
+            min-width:320px;
+            max-width:450px;
+            height:450px;
+            border-radius:20px;
+            padding:20px;
+            margin:auto;
+            background-color:var(--cor0)
+        }
+        main h1{
+            font-family:var(--fonttitulo);
+            font-size:2.5em;
+        }
+        main h2{
+            font-size:1.5em;
+            font-weight: normal;
+            margin-bottom:10px;
+        }
+        main p{
+            margin-bottom:10px;
+            font-size:1em;
+        }
+        main input{
+            margin-bottom:15px;
+            display:block;
+        }
+        main input.bt{
+            padding:5px;
+            border-radius:5px;
+            box-shadow:2px 2px 5px 1px rgba(0, 0, 0, 0.486);
+            font-family:var(--fonttitulo);
+            background-color:var(--cor3);
+            font-size:1.5em;
+        }
+        main input.bt:hover{
+            color:var(--cor0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="midias/barsilflag.jpeg"alt="bandeira do brasil">
+        <img src="midias/usaflag.jpeg">
+        <img src="midias/argflag.jpeg">
+        <img src="midias/mexicoflag.png">
+        <img src="midias/colombiaflag.jpeg">
+    </header>
+    <main>
+        <h1>Descobrindo o seu país</h1>
+        <h2>Digite o seu pais</h2>
+        <input type="text" name="txt" id="txt">
+        <input type="button" value="Validar" class="bt" onclick="escolher()">
+        <div id="res"></div>
+    </main>
+    <script>
+        function escolher(){
+            var txt = document.getElementById('txt')
+            var res = document.getElementById('res')
+            res.innerHTML = `<p> O seu país é ${txt.value} </p>`
+            if(txt.value=='Brasil'){
+                res.innerHTML += `<p> Você é brasileiro </p>`
+            }else{
+                res.innerHTML += `<p> Você é um estrangeiro </p>`
+            }
+            res.innerHTML += `<p>Obrigado por responder este questionário !<p>`
+        }
+    </script>
+</body>
+</html>

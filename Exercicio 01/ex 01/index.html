@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora do dia</title>
+    <style>
+        /* Cores do projeto */
+        :root{
+            --cor0:rgb(252, 232, 196);
+            --cor1:#b8860b;
+            --cor2:#363636;
+        }
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        body{
+            padding:50px 20px 20px 20px;
+            font-family:Arial, Helvetica, sans-serif;
+            background-color:rgb(42, 81, 112);
+            color:white;
+        }
+        header{
+            text-align:center;
+            margin-bottom:20px;
+        }
+        header h1{
+            font-family:Arial, Helvetica, sans-serif;
+            font-size:2em;
+        }
+        main{
+            min-width:320px;
+            max-width:500px;
+            height:300px;
+            text-align:center;
+            margin:auto;
+            border-radius:20px;
+            box-shadow:2px 2px 5px 1px rgba(0, 0, 0, 0.37);
+            background-color:whitesmoke;
+            margin-bottom:20px;
+            color:black;
+            padding:20px;
+        }
+        main img{
+            margin:auto;
+            border-radius:50%;
+
+        }
+        
+        main #horadodia{
+            margin-bottom:20px;
+            font-size:1.5em;
+        }
+        footer{
+            text-align:center;
+        }
+    </style>
+</head>
+<body onload="carregar()">
+    <header>
+        <h1>Hora do Dia</h1>
+    </header>
+    <main>
+        <div id="horadodia">
+            O dia hoje é
+        </div>
+        <div id="img">
+            <img src="imagens/dia.png" alt="foto do dia" id="imagem">
+        </div>
+    </main>
+    <footer>
+        <p>&copy CursoemVideo</p>
+    </footer>
+    <script>
+        function carregar(){
+            var img = document.getElementById('imagem')
+            var agora = new Date()
+            var hora = agora.getHours()
+            var minuto = agora.getMinutes()
+            var horadodia = document.getElementById('horadodia')
+            horadodia.innerHTML = `Agora são ${hora} horas  e ${minuto} minutos`
+            if(hora > 0 && hora < 12){
+                //BOM DIA
+                img.src = 'imagens/dia.png'
+                document.body.style.background = 'rgb(252, 232, 196)'
+                document.body.style.color = 'black'
+            }else if(hora > 12 && hora < 18){
+                //BOA TARDE
+                img.src = 'imagens/tarde.png'
+                document.body.style.background = '#b8860b'
+            }else{
+                //BOA NOITE
+                img.src = 'imagens/noite.png'
+                document.body.style.background = '#363636'
+            }
+
+        }
+        
+    </script>
+</body>
+</html>
